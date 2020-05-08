@@ -1,0 +1,11 @@
+---
+- name: Download packer
+  get_url:
+    url: "{{ packer_url }}"
+    dest: /tmp
+    mode: '0644'
+
+- name: Extract packer and mv to {{ packer_path }}
+  unarchive:
+    src: "/tmp/packer_"{{ packer_version }}"_linux_amd64.zip
+    dest: "{{ packer_path }}"
