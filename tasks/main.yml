@@ -5,10 +5,10 @@
     name: unzip
     state: present
 
-- name: Download and extract packer and mv it to {{ packer_dir_path }}
+- name: Download and extract packer and mv it to {{ packer_path }}
   unarchive:
     src: "{{ packer_download_url }}"
-    dest: "{{ packer_dir_path }}"
+    dest: "{{ packer_path }}"
     remote_src: yes
     mode: 0644
 
