@@ -8,6 +8,6 @@
         cache_valid_time: 3600
       when: ansible_os_family == 'Debian'
 
-    - name: "Include ansible-role-minikube"
+    - name: "Include ansible-role-packer"
       include_role:
-        name: "ansible-role-minikube"
+        name: "ansible-role-packer"
