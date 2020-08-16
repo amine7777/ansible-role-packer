@@ -1,0 +1,22 @@
+---
+# tasks file for Packer
+- name: Install unzip
+  package:
+    name: unzip
+    state: present
+
+- name: Download and extract packer and mv it to {{ packer_dir_path }}
+  unarchive:
+    src: "{{ packer_download_url }}"
+    dest: "{{ packer_dir_path }}"
+    remote_src: yes
+    mode: 0644
+
+- name: Check packer version
+  command: packer --version
+  changed_when: false
+  register: check_packer
+
+- name: Display minikube version
+  debug:
+    msg: '{{ check_packer.stdout_lines }}'
