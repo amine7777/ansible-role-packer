@@ -23,7 +23,6 @@ galaxy_info:
     - all
   galaxy_tags:
     - system
-    - minikube
-    - kubernetes
+    - image
     - docker
-    - container
+    - packer
