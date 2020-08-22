@@ -5,12 +5,13 @@
     name: unzip
     state: present
 
-- name: Download and extract packer and mv it to /usr/local/bin
+- name: Download and extract packer and mv it to {{ packer_directory_path }}
   unarchive:
     src: '{{ packer_download_url }}'
-    dest: /usr/local/bin
+    dest: '{{ packer_directory_path }}'
     remote_src: yes
-    mode: 0644
+    creates: '{{ packer_directory_path }}/packer'
+    mode: 0755
 
 - name: Check packer version
   command: packer --version
