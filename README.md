@@ -6,7 +6,7 @@ This role helps you to install minikube on your linux machine.
 
 |Travis|GitHub|Quality|Downloads|Version|
 |------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/amine7777/ansible-role-packer.svg?branch=master)](https://travis-ci.com/amine7777/ansible-role-packer)|[![github](https://github.com/amine7777/ansible-role-packer/workflows/CI/badge.svg)](https://github.com/amine7777/ansible-role-packer/actions)|[![quality](https://img.shields.io/ansible/quality/49942)](https://galaxy.ansible.com/amine7777/packer)|[![downloads](https://img.shields.io/ansible/role/d/50231)](https://galaxy.ansible.com/amine7777/packer)|[![Version](https://img.shields.io/github/release/amine7777/ansible-role-packer.svg)](https://github.com/amine7777/ansible-role-packer/releases/)|
+|[![travis](https://travis-ci.com/amine7777/ansible-role-packer.svg?branch=master)](https://travis-ci.com/amine7777/ansible-role-packer)|[![github](https://github.com/amine7777/ansible-role-packer/workflows/CI/badge.svg)](https://github.com/amine7777/ansible-role-packer/actions)|[![quality](https://img.shields.io/ansible/quality/49942)](https://galaxy.ansible.com/amine7777/packer)|[![downloads](https://img.shields.io/ansible/role/d/50348)](https://galaxy.ansible.com/amine7777/packer)|[![Version](https://img.shields.io/github/release/amine7777/ansible-role-packer.svg)](https://github.com/amine7777/ansible-role-packer/releases/)|
 
 ![](packer.png)
 
@@ -21,7 +21,7 @@ These variables helps to manage packer installation.
 
 You can specify your packer version in this variable.
 ```yaml
-packer_version: 1.5.6
+packer_version: 1.6.1
 packer_arch: amd64
 packer_directory_path: /usr/local/bin
 ```
