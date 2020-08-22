@@ -5,7 +5,7 @@
     name: unzip
     state: present
 
-- name: Download and extract packer and mv it to {{ packer_directory_path }}
+- name: Download and extract packer
   unarchive:
     src: '{{ packer_download_url }}'
     dest: '{{ packer_directory_path }}'
@@ -18,6 +18,6 @@
   changed_when: false
   register: check_packer
 
-- name: Display minikube version
+- name: Display packer version
   debug:
     msg: '{{ check_packer.stdout_lines }}'
