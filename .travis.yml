@@ -13,8 +13,8 @@ env:
     - MOLECULE_DISTRO: debian9
 
 install:
-  - pip install docker-py docker
-  - pip install molecule yamllint ansible-lint
+  - pip3 install docker-py docker
+  - pip3 install molecule yamllint ansible-lint
 
 script:
   # Run tests.
