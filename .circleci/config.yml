@@ -1,21 +1,36 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: centos:7
+  test:
+    machine:
+      services: docker
+    environment:
+      - ROLE_NAME: packer
     steps:
       - checkout
-      - run: |
-          yum install epel-release -y
-          yum install ansible -y
-          yum install openssh -y 
-          yum install unzip -y
-          ssh-keygen -t rsa -f $HOME/.ssh/id_rsa_ansible -q -P ""
-          cat ~/.ssh/id_rsa_ansible.pub >> ~/.ssh/authorized_keys
-          ansible-playbook deploy_packer.yaml -e "packer_version=1.5.6"
-          packer --version
+      - run:
+          name: Install python and python-pip
+          command: |
+            sudo apt-get update -y
+            sudo apt-get install python -y
+            sudo apt-get install python-pip -y
+            pip install --upgrade pip
+          
+      - run:
+          name: Install dependencies
+          command: |
+            pip install docker==3.4.1
+            pip install molecule ansible-lint yamllint
+          
+      - run:
+          name: Test role with molecule
+          command: |
+            mkdir ~/ansible-role-$ROLE_NAME
+            cd ..
+            mv ~/project/{,.[^.]}* ~/ansible-role-$ROLE_NAME
+            cd ~/ansible-role-$ROLE_NAME
+            molecule test      
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - test
