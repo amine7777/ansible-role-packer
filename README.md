@@ -6,7 +6,7 @@ This role helps you to install minikube on your linux machine.
 
 |Travis|CircleCI|GitHub|Quality|Downloads|Version|
 |------|--------|------|-------|---------|-------|
-|[![travis](https://travis-ci.com/amine7777/ansible-role-packer.svg?branch=master)](https://travis-ci.com/amine7777/ansible-role-packer)||![circleci](https://circleci.com/gh/amine7777/ansible-role-packer.svg?style=svg)|[![github](https://github.com/amine7777/ansible-role-packer/workflows/CI/badge.svg)](https://github.com/amine7777/ansible-role-packer/actions)|[![quality](https://img.shields.io/ansible/quality/49942)](https://galaxy.ansible.com/amine7777/packer)|[![downloads](https://img.shields.io/ansible/role/d/50348)](https://galaxy.ansible.com/amine7777/packer)|[![Version](https://img.shields.io/github/release/amine7777/ansible-role-packer.svg)](https://github.com/amine7777/ansible-role-packer/releases/)|
+|[![travis](https://travis-ci.com/amine7777/ansible-role-packer.svg?branch=master)](https://travis-ci.com/amine7777/ansible-role-packer)|![circleci](https://circleci.com/gh/amine7777/ansible-role-packer.svg?style=svg)|[![github](https://github.com/amine7777/ansible-role-packer/workflows/CI/badge.svg)](https://github.com/amine7777/ansible-role-packer/actions)|[![quality](https://img.shields.io/ansible/quality/49942)](https://galaxy.ansible.com/amine7777/packer)|[![downloads](https://img.shields.io/ansible/role/d/50348)](https://galaxy.ansible.com/amine7777/packer)|[![Version](https://img.shields.io/github/release/amine7777/ansible-role-packer.svg)](https://github.com/amine7777/ansible-role-packer/releases/)|
 
 ![](packer.png)
 
