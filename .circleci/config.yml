@@ -31,6 +31,6 @@ jobs:
             molecule test      
 workflows:
   version: 2
-  molecule-$ROLE_NAME:
+  molecule-$CIRCLE_PROJECT_REPONAME:
     jobs:
       - test
