@@ -26,7 +26,7 @@ packer_arch: amd64
 packer_directory_path: /usr/local/bin
 ```
 This is the url where packer will be downloaded.
-```ỳaml
+```yaml
 packer_download_url: 'https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip'
 ```
 This is the path where packer binary will be stored.
