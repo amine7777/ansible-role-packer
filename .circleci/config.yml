@@ -1,74 +1,37 @@
--- 
-name: CI
-'on':
-  pull_request:
-  push:
-    branches:
-      - master
-  schedule:
-    - cron: "0 7 * * 5" #minute (0 - 59)-hour (0 - 23)-day of the month (1 - 31)-month (1 - 12)-day of the week (0 - 6)
 
-defaults:
-  run:
-    working-directory: 'amine7777.packer'
-
+version: 2
 jobs:
-
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
+  test:
+    machine:
+      services: docker
+    environment:
+      - ROLE_NAME: packer
     steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-        with:
-          path: 'amine7777.packer'
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install test dependencies.
-        run: pip3 install yamllint ansible-lint
-
-      - name: Lint code.
-        run: |
-          yamllint .
-          ansible-lint
+      - checkout
+      - run:
+          name: Install python and python-pip
+          command: |
+            sudo apt-get update -y
+            sudo apt-get install python -y
+            sudo apt-get install python-pip -y
+            pip install --upgrade pip
+          
+      - run:
+          name: Install dependencies
+          command: |
+            pip install docker==3.4.1
+            pip install molecule ansible-lint yamllint
+          
+      - run:
+          name: Test role with molecule
+          command: |
+            mkdir ~/ansible-role-$ROLE_NAME
+            cd ..
+            mv ~/project/{,.[^.]}* ~/ansible-role-$ROLE_NAME
+            cd ~/ansible-role-$ROLE_NAME
+            molecule test      
+workflows:
+  version: 2
   molecule:
-    name: Molecule
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - distro: centos8
-            playbook: converge.yml
-          - distro: centos7
-            playbook: converge.yml
-          - distro: ubuntu1804
-            playbook: converge.yml
-          - distro: debian9
-            playbook: converge.yml
-
-    steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-        with:
-          path: 'amine7777.packer'
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker
-
-      - name: Run Molecule tests.
-        run: molecule test
-        env:
-          PY_COLORS: '1'
-          ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.distro }}
-          MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
-
+    jobs:
+      - test
