@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            pip install docker==3.4.1
+            pip install molecule[docker]
             pip install molecule ansible-lint yamllint
           
       - run:
