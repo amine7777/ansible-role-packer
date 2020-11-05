@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            pip3 install docker
+            pip3 install molecule[docker]
             pip3 install molecule ansible-lint yamllint
           
       - run:
