@@ -12,12 +12,3 @@
     remote_src: yes
     creates: '{{ packer_directory_path }}/packer'
     mode: 0755
-
-- name: Check packer version
-  command: packer --version
-  changed_when: false
-  register: check_packer
-
-- name: Display packer version
-  debug:
-    msg: '{{ check_packer.stdout_lines }}'
