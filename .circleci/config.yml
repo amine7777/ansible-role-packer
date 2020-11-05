@@ -8,18 +8,18 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install python and python-pip
+          name: Install python and python3-pip
           command: |
             sudo apt-get update -y
-            sudo apt-get install python -y
-            sudo apt-get install python-pip -y
-            pip install --upgrade pip
+            sudo apt-get install python3 -y
+            sudo apt-get install python3-pip -y
+            pip3 install --upgrade pip
           
       - run:
           name: Install dependencies
           command: |
-            pip install molecule-docker
-            pip install molecule ansible-lint yamllint
+            pip3 install docker
+            pip3 install molecule ansible-lint yamllint
           
       - run:
           name: Test role with molecule
