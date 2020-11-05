@@ -13,7 +13,7 @@ This role helps you to install minikube on your linux machine.
 Requirements
 ------------
 - Linux machine
-- Ansible 2.9
+- Ansible 2.10
 
 Role Variables
 --------------
