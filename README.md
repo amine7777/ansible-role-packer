@@ -21,7 +21,7 @@ These variables helps to manage packer installation.
 
 You can specify your packer version in this variable.
 ```yaml
-packer_version: 1.6.1
+packer_version: 1.6.4
 packer_arch: amd64
 packer_directory_path: /usr/local/bin
 ```
