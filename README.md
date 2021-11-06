@@ -1,7 +1,7 @@
 Ansible role: Packer
 =========
 
-This role helps you to install minikube on your linux machine.
+This role helps you to install packer on your linux machine.
 
 
 |Travis|GitHubActions|Quality|Downloads|Version|
